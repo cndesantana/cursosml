@@ -1,0 +1,58 @@
+---
+title:    | 
+ | Machine Learning for Community Ecology
+ | *Using R and Rstudio  -- Live Edition*
+author:    | 
+ |
+ | **Antonio Canepa, Ph.D.**
+ | *[www.onemind-datascience.com](https://www.onemind-datascience.com/)*
+ |
+ | **Charles Novaes de Santana, Ph.D.**
+ | *[datascout.com.br](https://datascout.com.br/index.php/en/)*
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+    toc: yes  
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+```{r echo=FALSE, purl=FALSE, warning=FALSE, message=FALSE}
+htmltools::img(src = knitr::image_uri(f = "INPUT/IMAGES/OMDS_DS_small.png"), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:1px;')
+```
+
+# Module II - Community Changes
+
+In this module we will study Community Changes using concepts of Machine Learning and the package Tidymodels.
+
+## Introduction to Machine Learning
+
+__Machine Learning__, o aprendizaje de máquina, es un área de la Inteligéncia Artificial que está enfocada en el entrenamiento de modelos dirigidos a datos. 
+
+### Machine Learning and Tidymodels
+
+Machine learning is...
+
+## GAM for univariate community spatial change
+
+In this section we will study how GAM can be used to study community spatial changes.
+
+### GAMM with spatial structure and Hypothesis testing
+
+GAMM is...
+
+## Random forest and PCA for community traits change
+
+In this section we will study how Random forest can be used to study community traits change
+
+### PCA
+
+PCA is...
+
+### Decision Tree and Random Forest
+
+Decision trees are...
