@@ -1,0 +1,192 @@
+---
+title: "Data Science con R - estudiando datos de twitter"
+author: "Charles Santana"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Qué es el R y el Rstudio?
+
+R es uno de los lenguajes de programación más utilizados en lo que nosotros llamamos de Ciencia de Datos. Entre los benefícios de la programación con R podemos citar:
+
+- R es un software libre y multiplataforma
+- R es el lenguaje más utilizado por la comunidad de científicos y profesionales de Estadística en el mundo
+- R permite reproducir y compartir los análisis con facilidad
+- R ha cumplido 20 años y tiene un ecosistema de librerías muy amplio
+
+## Instalar Rstudio
+
+R es un lenguaje, como lo es el Castellano, el Catalán, el Inglés o el Portugués. Y de la misma manera que necesitamos herramientas para escribir un texto en un idioma (ya sea un lápiz y un papel o un ordenador con el Word, OpenOffice u otro programa de edicción de texto instalado) para escribir un programa en R necesitamos también algunas herramientas. En ese curso, vamos a necesitar 2 herramientas: el compilador R y el Rstudio. 
+
+Rstudio es lo que se suele llamar por **Ambiente de Programación**. Es un software que tiene un editor de texto para escribir el código fuente de un programa en R, pero que también permite correr comandos del R, visualizar gráficas, controlar el historial de comandos utilizados, y muchas cosas más. 
+
+Para instalar el compilador R, vamos a descargarlo de la siguiente página web (elija la versión más adecuada para tu sistema operativo):
+
+```
+https://cran.r-project.org/
+```
+
+El Rstudio lo vamos a descargar de la siguiente página web (elija la versión más adecuada para tu sistema operativo): 
+
+```
+https://rstudio.com/products/rstudio/download/
+```
+
+En el video de la clase lo vamos a enseñar como instalar el compilador y el Rstudio.
+
+## Conociendo Rstudio
+
+En el video de la clase vamos a utilizar el Rstudio como Ambiente de Programación de R. Vamos a probar comandos de R en la consola de Rstudio, identificar las variables y el historial de comandos, identificar los ficheros y las gráficas generadas, y vamos a aprender como crear nuevos ficheros, abrir antíguos ficheros, guardar los programas en R, correr los programas (o scripts) y mucho más. 
+
+## Instalar y cargar librerías
+
+He dicho antes que una de las principales ventajas de programar en R es que ese es un lenguaje con un ecosistema de librerías bastante amplio. Eso significa que hay muchos programas en R desarrollados por otros programadores que podemos utilizar para nuestras necesidades. 
+
+Por ser un lenguaje de programación libre, R necesita de una comunidad de programadores y usuarios para poder desarrollarse y crecer. Por eso hay muchos programadores que comparten sus scripts bajo la forma de librerías, para facilitar el trabajo de la comunidad y para facilitar que el lenguaje siga creciendo. 
+
+A la fecha de hoy, Junio de 2020, hay más de 15788 librerías en R, disponibilizadas por la comunidad y para la comunidad. Hay librerías de diferentes áreas de interés, desde librerías útiles para hacer cálculos estadísticos sencillos o graficar figuras, hasta librerías que son útiles tan solo para facilitar el trabajo de quién desarrolla nuevas librerías. Hay librerías útiles para descargar datos de redes sociales y hay librerías útiles para simular modelos de inteligencia artificial. Eso hace que la comunidad de usuarios de R sea formada por estudiantes y profesionales de las más diferentes áreas de la ciencia y del mercado de trabajo.
+
+Para instalar una librería en R se utiliza el comando **install.packages** que recibe como parámetro el nombre de la librería. Para utilizar una librería que esté instalada en nuestro ambiente de programación solo tenemos que llamar el comando **library** con el nombre de la librería que queremos cargar. Abajo un ejemplo con comandos para las librerías que vamos a utilizar en el curso.
+
+```
+#install.packages("tidyverse")
+#install.packages("rtweet")
+#install.packages("lubridate")
+#install.packages("ggraph")
+#install.packages("igraph")
+#install.packages("tidyr")
+#install.packages("tidytext")
+library(tidyverse)
+library(rtweet)
+library(lubridate)
+library(tidyr)
+library(tidytext)
+library(ggraph)
+library(igraph)
+```
+
+## R y Twitter
+
+Una de las principales fuentes de datos públicos y en tiempo real a día de hoy es el Twitter. Twitter es una plataforma de comunicación que contiene conversaciones entre milliones de personas de todo el mundo sobre todo asuntos de cualquier naturaleza: hay desde gente hablando sobre como ha sido el día hasta gente discutiendo política, deporte, moda, o incluso temas científicos. Hay contenidos más sérios y también contenidos más ligeros, de humor. Y aunque estemos hablando de informaciones textuales, es posible utilizar la Ciencia de Datos y el R para entender un poco que está pasando en Twitter, el comportamiento y los intereses de los usuarios. Debido a la popularidad y a la variedad de intereses que hay en Twitter, elegimos analisar datos de esa plataforma como ejemplos para nuestros estudios de R. Para eso, vamos a utilizar la librería **rtweet**.
+
+## Descargar datos de twitter
+
+Lo primero que vamos a hacer es descargar datos de twitter. Elegimos descargar datos de los últimos tweets de un usuario satírico bastante conocido por la sociedad hispanohablante: El Mundo Today (@elmundotoday). Para eso vamos a utilizar el comando **search_tweets** de la librería __rtweet__
+
+```
+tw = search_tweets("elmundotoday")
+```
+
+## Exploratory Data Analysis
+
+A partir de ahora vamos a proceder con el estudio exploratorio de los datos de twitter descargados. Vamos a utilizar comandos de las librerías __tidyverse__ y __lubridate__ para ordenar y hacer transformaciones en los datos para se queden más sencillos de entender y de sacar __insights__. 
+
+```
+
+### Mirar el contenido y Ordenar el data.frame (the tidy way)
+
+### Representar fechas a nivel de hora
+
+### Filtrar los retweets, las respuestas y las citaciones y guardar en una nueva variable a ser trabajada en los videos 5-9
+
+```
+
+Una vez los datos están ordenados, podemos empezar a calcular algunas métricas que nos ofrezcan informaciones útiles. Por ejemplo, podemos calcular las principales métricas de performance de una cuenta de twitter por día y por mes:
+
+```
+### numero de retweets
+
+### numero de favoritos
+
+### numero de posts
+```
+
+
+Tenemos las métricas a mano en formato numérico, pero nos interesa visualizarlas gráficamente, y para eso vamos a crear gráficas utilizándo la librería __ggplot2__
+
+```
+
+#### graficos de linea
+
+#### graficos de barra
+
+```
+
+Ahora que hemos visto valores medios y agregados de las métricas en el tiempo, queremos ver cuales son los tweets con las mejores métricas. Para eso vamos a crear un __ranking de tweets__.
+
+```
+
+### tweets con más retweets
+
+### tweets con más favoritos
+
+### Exportar outputs a ficheros CSV
+
+### Leer de vuelta los ficheros CSV
+```
+
+El R es muy utilizado para representar datos en formato texto. Ahora vamos a utilizar algunos de los comandos más comúnes en el tratamiento de textos para identificar las palabras más comúnes en los tweets. Vamos a utilizar comandos de las librerías __tidyr__ y __tidytext__ 
+
+```
+### Remueve palabras de conexión (stop-words)
+
+### identifica los n-grams (unigram, bigram)
+
+### graficar el ranking de las unigram y de las bigram más comúnes
+
+### graficar los rankings para diferentes períodos de tiempo (weekday versus weekend)
+
+```
+
+
+Uno de los estudios más entretenidos y que además permite entender bastante de la comunicación en las redes sociales es el estudio de Grafos (o redes) de interacciones de usuarios en Twitter. Vamos a proceder con ese tipo de estudio utilizándo retweets que citan el usuario de interés, en ese caso, retweets que citan al usuario __elmundotoday__. Para ese estudio son necesarios comandos de las librerías __igraph__ y __ggraph__.
+
+```
+### Descargar datos de tweets que citan a la cuenta que nos interesa
+
+### filtrar solamente los retweets
+
+### identificar los usuarios que escriben el tweet y los usuarios que han escrito los tweets originales
+
+### crear las redes: nodos son usuarios, si un usuario hace un retweet con el otro, hay una arista entre ellos
+
+### dibujar las redes con tamaño de los nodos proporcional al número de interacciones que tiene
+
+```
+
+Para finalizar, una de las informaciones más importantes en los tweets son las __hashtags__. Ahora vamos a mirar cuales son las hashtags más utilizadas en los retweets que descargamos para el estudio de redes, para saber que tipo de información los usuarios suelen asociar a los tweets de __elmundotoday__:
+
+```
+### unnest y filtrar las hashtags
+
+### contar y rankear las hashtags más utilizadas
+
+### graficar las hashtags más utilizadas - gráfico de barras
+
+```
+
+## Bonus
+
+Como ejercício, podríamos intentar identificar quienes son los usuarios que más han sido favoritados por algun otro usuario de Twitter. Yo me intereso por fútbol: me gustaría saber quienes han sido los usuarios más favoritados por Cristiano Ronaldo y por Neymar en el año de 2020. Mira como lo haría yo e intenta reproducir con los usuarios de tu interés:
+
+```
+### descargar favoritados de Cristiano Ronaldo
+
+### contar y rankear los usuarios más favoritados
+
+### graficar los 10 usuarios más favoritados
+
+### descargar favoritados de Neymar
+
+### contar y rankear los usuarios más favoritados
+
+### graficar los 10 usuarios más favoritados
+
+### Guardar las gráficas en ficheros del formato PNG
+
+
+```
